@@ -8,13 +8,15 @@
 </head>
 <body class="paper">
 	<div id="app">
-		<input type="number" v-model="n">
-		<input type="number" v-model="row">
+		สูตรคูณแม่ <input type="number" v-model="n">
+		สูตรคูณแม่ <input type="number" v-model="row">
 		<div class="space"></div>
 		<h2>สูตรคูณแม่ {{n}}</h2>
-		<h5>แม่ก่อนหน้า -> แม่ {{before_n}}</h5>
+		<h4>สูตรคูณแม่ก่อนหน้า สูตรคูณแม่ {{before_n}}</h4>
 		<h3 v-for="i in r"
 		>{{n}} x {{i}} = {{x(i)}}</h3>
+		<h3>ผลรวมสูตรคูณ คือ {{s(row)}}</h3>
+
 	</div>
 
 	<script>
@@ -28,6 +30,13 @@
 			methods: {
 				x: function(row){
 					return this.n*row
+				},
+				s: function(row){
+					sum = 0
+					for (let i = 1; i <= row; i++){
+						sum += (this.n*i)
+					}
+					return sum
 				}
 			},
 			computed: {
