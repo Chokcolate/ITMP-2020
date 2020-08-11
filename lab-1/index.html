@@ -1,88 +1,118 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Lab - Multimedia Programming 2563 ITKMITL</title>
 	<link rel=stylesheet href="../src/reset.css">
 	<link rel=stylesheet href="lab.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
+
 <body class="paper">
 	<div id="app">
-		สูตรคูณแม่ <input type="number" v-model="n">
-		สูตรคูณแม่ <input type="number" v-model="row">
-		<div class="space"></div>
-		<h2>สูตรคูณแม่ {{n}}</h2>
-		<h4>สูตรคูณแม่ก่อนหน้า สูตรคูณแม่ {{before_n}}</h4>
-		<h3 v-for="i in r"
-		>{{n}} x {{i}} = {{x(i)}}</h3>
-		<h3>ผลรวมสูตรคูณ คือ {{s(row)}}</h3>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm">
+					<center>
+						<div class="card bg-warning" style="width: 18rem;">
+							<div class="card-body">
+								<h5 class="card-title">สูตรคูณแม่ <input type="number" v-model="n"></h5>
+								<h5 class="card-title">แถว <input type="number" v-model="row"></h5>
+							</div>
+						</div>
+					</center>
+					
+				</div>
+				<div class="col-sm">
+					<div class="space"></div>
+					<h2>สูตรคูณแม่ {{n}}</h2>
+					<h4>สูตรคูณแม่ก่อนหน้า สูตรคูณแม่ {{before_n}}</h4>
+					<h3 v-for="i in r">{{n}} x {{i}} = {{x(i)}}</h3>
+					<h3>ผลรวมสูตรคูณ คือ {{s(row)}}</h3>
+				</div>
+			</div>
+		</div>
+
+
 
 	</div>
 
 	<script>
 		let app = new Vue({
-			el:"#app",
-			data:{
-				n:2,
-				before_n:1,
-				row:12
+			el: "#app",
+			data: {
+				n: 2,
+				before_n: 1,
+				row: 12
 			},
 			methods: {
-				x: function(row){
-					return this.n*row
+				x: function (row) {
+					return this.n * row
 				},
-				s: function(row){
+				s: function (row) {
 					sum = 0
-					for (let i = 1; i <= row; i++){
-						sum += (this.n*i)
+					for (let i = 1; i <= row; i++) {
+						sum += (this.n * i)
 					}
 					return sum
 				}
 			},
 			computed: {
-				r: function(){
+				r: function () {
 					return parseInt(this.row)
 				},
-				x2: function(){
-					return this.n*2
+				x2: function () {
+					return this.n * 2
 				},
-				x3: function(){
-					return this.n*3
+				x3: function () {
+					return this.n * 3
 				},
-				x4: function(){
-					return this.n*4
+				x4: function () {
+					return this.n * 4
 				},
-				x5: function(){
-					return this.n*5
+				x5: function () {
+					return this.n * 5
 				},
-				x6: function(){
-					return this.n*6
+				x6: function () {
+					return this.n * 6
 				},
-				x7: function(){
-					return this.n*7
+				x7: function () {
+					return this.n * 7
 				},
-				x8: function(){
-					return this.n*8
+				x8: function () {
+					return this.n * 8
 				},
-				x9: function(){
-					return this.n*9
+				x9: function () {
+					return this.n * 9
 				},
-				x10: function(){
-					return this.n*10
+				x10: function () {
+					return this.n * 10
 				},
-				x11: function(){
-					return this.n*11
+				x11: function () {
+					return this.n * 11
 				},
-				x12: function(){
-					return this.n*12
+				x12: function () {
+					return this.n * 12
 				}
 			},
 			watch: {
-				n: function(a,b){
+				n: function (a, b) {
 					this.before_n = b
 				}
 			}
 		});
 	</script>
 </body>
+
 </html>
