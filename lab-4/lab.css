@@ -15,6 +15,7 @@ body{
 	height: 50px;
 	color: white;
 	font-weight: bold;
+	font-size: 30px;
 }
 #canvas_main{
 	background-color: black;

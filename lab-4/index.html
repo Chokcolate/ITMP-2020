@@ -22,7 +22,7 @@
 					'--l':l+'%',
 				}"
 				:data-pick="i == pick"
-				@click="check(i)"
+				@click="check(i == pick)"
 				></a-dot>
 			</main>
 		</section>
@@ -34,8 +34,8 @@
 	</div>
 
 	<script>
-		let picklight = "80%" //เลือกว่ารอบนี้ อันพิเศษจะมีความสว่าง 20%
-		document.registerElement('a-dot') //ให้ vue รู้จัก a-dot
+		let picklight = "40%" //เลือกว่ารอบนี้ อันพิเศษจะมีความสว่าง 20%
+		//document.registerElement('a-dot') //ให้ vue รู้จัก a-dot
 
 		function rand(start,stop){//สร้างฟังก์ชัน random ไว้ใช้
 			let shift = (stop-start)+1
@@ -56,11 +56,21 @@
 				check: function(e){
 					console.log(e)
 					//ทำให้เช็คก่อนว่าถูกไหม
+					if (e == true) {
+                        this.score += 10
+                        this.time += 1
+                        this.correct()
+					}
+					else if (e == false) {
+						this.score -= 5
+                        this.time -= 2
+					}
 				},
 				correct: function(){
 					//เข้าด่านต่อไป
-					this.row = rand(2,6)
-					this.pick = rand(1,6)
+					this.row += 1
+					this.pick = rand(1, this.row * this.row)
+					this.h = rand(0,360)
 					console.log('Correct!')
 				}
 			}
