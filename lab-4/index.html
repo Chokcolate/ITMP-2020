@@ -53,13 +53,20 @@
 				l:50,//ความสว่างของสีทั่วไปในรอบนี้
 			},
 			methods: {
-				check: function(i){
-					console.log(i)
+				check: function(e){
+					console.log(e)
+					//ทำให้เช็คก่อนว่าถูกไหม
+				},
+				correct: function(){
+					//เข้าด่านต่อไป
+					this.row = rand(2,6)
+					this.pick = rand(1,6)
+					console.log('Correct!')
 				}
 			}
 		})
 		//ทำให้แคนวาสมี --picklight ตามที่กำหนดไว้ข้างบนนี้
-		document.querySelector('#canvas').style.setProperty('--picklight',picklight);
+		document.querySelector('#canvas').style.setProperty('--picklight',picklight);//ก็อปไปใช้อีกทีตอนแรนดอมเข้าด่านใหม่ได้
 		
 		let counter = setInterval(()=>{ //ทุกๆ 1000 มิลลิวินาที
 			if (app.time>0) { //เวลา ถ้าเวลามากกว่า 0 
