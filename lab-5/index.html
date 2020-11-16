@@ -64,8 +64,18 @@
 				]
 			},
 			methods:{},
-			computed:{
-				
+			computed:{},
+			watch:{
+				turn: function(x){
+					let count = this.fruits.length
+					for(let f in this.fruits){
+						let run = this.fruits[f].run
+						if (run) {
+							this.fruits[f].pst = this.fruits[f].pst+1
+						}
+						console.log()
+					}
+				}
 			}
 		})
 
