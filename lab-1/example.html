@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Lab - Multimedia Programming 2563 ITKMITL</title>
+	<link rel=stylesheet href="../src/reset.css">
+	<link rel=stylesheet href="lab.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> <!-- ต้องมีบรรทัดนี้เพื่อให้ vue.js นั้นทำงาน -->
+</head>
+
+<body>
+    <div id="app">
+        <input type="number" v-model="n">  <!-- ทำให้สามารถเปลี่ยนค่าได้สำหรับ v-model inputเปลี่ยน nเปลี่ยน-->
+        <input type="number" v-model="row">
+        <div class="space"></div>
+        <!-- <h4 v-for="i in r">{{n}} x {{i}} = {{multiply(i)}}</h4> -->
+        <h4>{{n}} x 1 = x </h4>   <!-- {{n}} เรียกว่า expression -->
+        <h4>{{n}} x 2 = x </h4>
+        <h4>{{n}} x 3 = x </h4>
+        <h4>{{n}} x 4 = x </h4>
+        <h4>{{n}} x 5 = x </h4>
+        <h4>{{n}} x 6 = x </h4>
+        <h4>{{n}} x 7 = x </h4>
+        <h4>{{n}} x 8 = x </h4>
+        <h4>{{n}} x 9 = x </h4>
+        <h4>{{n}} x 10 = x </h4>
+        <h4>{{n}} x 11 = {{x11}} </h4>
+        <h4>{{n}} x 12 = {{x12}} </h4>
+
+        <!-- <h2>sum {{sum}}</h2> -->
+    </div>
+
+	<script>
+		let app = new Vue({  //เรียกแบบนี้ว่า instance Vue
+			el: '#app', //เรียกว่า elelment ที่มี id เป็นapp ก็คือต้องการให้ทำแสดงผล ให้มีค่าต่างๆที่เขียนใน script จะไปแสดงผลในelementไหน
+			data:{   //data ข้อมูลเหมือนตัวแปร
+				n:2, //ถ้าตัวแปรตัวนั้นต้องการแสดงผลเฉยๆเราก็ไม่ต้องไปใส่ค่า เช่น สวัสดี แต่อันนี้ต้องการใส่ค่า 2
+				row:12,
+			},
+            computed:{ //เวลาที่ต้องคำนวณอะไรต้องใช้ computed ต้องมีreturnค่า นำไปคำนวณก่อนแสดงผล
+                x12:function(){
+                    return this.n*12
+                },
+                x11:function(){
+                    return this.n*11
+                }
+            } 
+		})
+
+    </script>
+    
+    <script>
+        let app = new vue({
+            el: "#app",
+            data: {
+                n:2,
+                row:12
+            },
+            computed: {
+                x1: function(){
+                    return this.n*2
+                }
+            },
+            methods: {
+                x: function(row){
+                    return this.n*row
+                }
+            },
+            watch:{
+                n:function(a,b){
+                    this.n = b
+                }
+            }
+        })
+    </script>
+
+    <input type="number" v-model="n">
+    <h3 v-for="i in r">{{n}} x {{i}} = {{n*i}}</h3>
+
+</body>
+
+</html>
